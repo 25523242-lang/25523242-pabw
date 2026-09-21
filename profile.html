@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produksi Telur Ayam Harian</title>
+</head>
+<body>
+    <header>
+        <h1>Produksi Telur Ayam Harian</h1>
+        <nav aria-label="Navigasi utama">
+            <ul>
+                <li><a href="#bagian-1">Daftar Panen</a></li>
+                <li><a href="#bagian-2">Catat Panen</a></li>
+                <li><a href="#bagian-3">Tentang Kandang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="bagian-1">
+            <h2>Daftar Panen</h2>
+
+            <table>
+                <caption>Hasil panen telur ayam per kandang</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Kandang</th>
+                        <th scope="col">Jumlah Telur</th>
+                        <th scope="col">Tanggal Panen</th>
+                        <th scope="col">Kualitas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Kandang A</th>
+                        <td>28</td>
+                        <td>15 September 2026</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kandang B</th>
+                        <td>22</td>
+                        <td>15 September 2026</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kandang C</th>
+                        <td>17</td>
+                        <td>16 September 2026</td>
+                        <td>Sebagian retak</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <figure>
+                <img src="telur-1.webp" alt="Telur ayam hasil panen pagi di kandang belakang rumah" width="640" height="360" loading="lazy">
+                <figcaption>Telur hasil panen pagi sebelum disortir</figcaption>
+            </figure>
+        </section>
+
+        <section id="bagian-2">
+            <h2>Catat Panen</h2>
+
+            <form action="/simpan" method="post">
+                <p>
+                    <label for="kandang">Kandang</label>
+                    <input type="text" id="kandang" name="kandang" required>
+                </p>
+                <p>
+                    <label for="jumlah-telur">Jumlah telur (butir)</label>
+                    <input type="number" id="jumlah-telur" name="jumlah-telur" min="1" max="200" required>
+                </p>
+                <p>
+                    <label for="tanggal-panen">Tanggal panen</label>
+                    <input type="date" id="tanggal-panen" name="tanggal-panen" required>
+                </p>
+                <button type="submit">Simpan</button>
+            </form>
+        </section>
+
+        <section id="bagian-3">
+            <h2>Tentang Kandang</h2>
+            <p>Kandang ini berisi ayam petelur yang dipelihara untuk produksi telur harian. Panen dilakukan setiap pagi.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ahmad Fachry Saputro · 25523242 · 2026</p>
+    </footer>
+</body>
+</html>
