@@ -5,7 +5,8 @@
   --color-border: #4A3B30;
   --color-primary: #E8A87C;
   --color-danger: #FF8A8A;
-  --color-focus: #FBBF24;
+  --color-focus: #E8A87C;
+  --color-heading: #E8A87C;
   --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
