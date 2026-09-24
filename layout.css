@@ -1,0 +1,107 @@
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-fg);
+}
+
+.baris-atas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  padding-block: var(--space-6);
+  color: var(--color-fg);
+}
+
+.tabel-bungkus {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+.tabel-kandang {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.tabel-kandang th,
+.tabel-kandang td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  color: var(--color-fg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabel-kandang th {
+  background: var(--color-bg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tabel-kandang th:nth-child(1) { width: 22%; }
+.tabel-kandang th:nth-child(2) { width: 28%; }
+.tabel-kandang th:nth-child(3) { width: 18%; }
+.tabel-kandang th:nth-child(4) { width: 32%; }
+
+.tabel-kandang tbody tr:nth-child(even) td {
+  background: var(--color-bg);
+}
+
+.tabel-kandang tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.foto {
+  margin: 0;
+}
+
+.foto img {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.foto figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-fg);
+}
+
+footer {
+  margin-top: var(--space-6);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+}

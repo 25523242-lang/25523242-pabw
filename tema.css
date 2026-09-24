@@ -1,0 +1,28 @@
+:root:has(#tema:checked) {
+  --color-bg: #1C1613;
+  --color-fg: #F0E6D8;
+  --color-surface: #2A211C;
+  --color-border: #4A3B30;
+  --color-primary: #E8A87C;
+  --color-danger: #FF8A8A;
+  --color-focus: #FBBF24;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.pengalih-tema {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tombol-tema {
+  display: inline-block;
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  user-select: none;
+  color: var(--color-fg);
+  background: var(--color-surface);
+}

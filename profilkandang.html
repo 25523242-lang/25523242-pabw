@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kandang Ayam Petelur</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="layout.css">
+<link rel="stylesheet" href="komponen.css">
+<link rel="stylesheet" href="tema.css">
+</head>
+<body>
+
+<header>
+  <div class="baris-atas">
+    <h1>Kandang Ayam Petelur</h1>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#kandang">Kandang</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+  <input type="checkbox" id="tema" class="pengalih-tema">
+  <label for="tema" class="tombol-tema">Tema gelap</label>
+</header>
+
+<main>
+
+  <section id="profil">
+    <h2>Profil Kandang</h2>
+    <p>Kandang ini beroperasi sejak 2018. Ayam yang dipelihara jenis Lohmann Brown dan Isa Brown. Pakan diberikan dua kali sehari, telur dipanen setiap pagi lalu dikirim ke pasar dan pelanggan tetap di sekitar kota.</p>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri</h2>
+    <figure class="foto">
+      <img src="gambar.webp" alt="Baris ayam petelur di dalam kandang dengan lampu dan tempat pakan otomatis">
+      <figcaption>Kandang ayam petelur, baris baterai dengan tempat pakan otomatis.</figcaption>
+    </figure>
+  </section>
+
+  <section id="kandang">
+    <h2>Data Kandang</h2>
+    <div class="tabel-bungkus">
+      <table class="tabel-kandang">
+        <thead>
+          <tr>
+            <th>Kandang</th>
+            <th>Jenis Ayam</th>
+            <th>Jumlah</th>
+            <th>Produksi Telur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kandang A</td>
+            <td>Lohmann Brown</td>
+            <td>500 ekor</td>
+            <td>450 butir/hari</td>
+          </tr>
+          <tr>
+            <td>Kandang B</td>
+            <td>Isa Brown</td>
+            <td>400 ekor</td>
+            <td>360 butir/hari</td>
+          </tr>
+          <tr>
+            <td>Kandang C</td>
+            <td>Pullet</td>
+            <td>300 ekor</td>
+            <td>Baru mulai bertelur</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <form action="#" method="post">
+      <div class="form-kolom">
+        <label for="nama">Nama</label>
+        <input id="nama" name="nama" type="text" required>
+        <span class="pesan-galat">Nama wajib diisi.</span>
+      </div>
+      <div class="form-kolom">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+        <span class="pesan-galat">Masukkan email yang benar.</span>
+      </div>
+      <div class="form-kolom">
+        <label for="telepon">Telepon</label>
+        <input id="telepon" name="telepon" type="tel" inputmode="tel">
+      </div>
+      <div class="form-kolom">
+        <label for="kebutuhan">Kebutuhan</label>
+        <select id="kebutuhan" name="kebutuhan">
+          <option value="telur">Beli Telur</option>
+          <option value="pullet">Beli Pullet</option>
+          <option value="pakan">Tanya Pakan</option>
+        </select>
+      </div>
+      <div class="form-kolom">
+        <label for="pesan">Pesan</label>
+        <textarea id="pesan" name="pesan" rows="4" required></textarea>
+        <span class="pesan-galat">Pesan tidak boleh kosong.</span>
+      </div>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Kandang Ayam Petelur.</p>
+</footer>
+
+</body>
+</html>
