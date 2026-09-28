@@ -1,42 +1,6 @@
 # PABW – Ahmad Fachry Saputro – 25523242
 
 Repo ini memuat pekerjaan mata kuliah Pengembangan Aplikasi Berbasis Web, satu folder untuk setiap pertemuan.
-## Pertemuan 4 - Design token halaman profil kandang
-
-Hari ini saya ubah profil.html dari P3 supaya punya tampilan.
-File CSS yang saya buat ada 5: tokens.css, base.css, layout.css,
-komponen.css, tema.css. Semuanya ada di folder worksheet-p4/.
-
-Halaman ini tentang kandang ayam petelur. Warna utama yang saya
-pilih #8B4513 (cokelat), karena cocok dengan tema kandang dan
-lebih beda dari warna biru yang umum dipakai.
-
-Token yang saya tetapkan:
-
-- --color-bg : #FBF8F1 (latar halaman)
-- --color-fg : #1A1A1A (teks utama)
-- --color-surface : #FFFFFF (latar tabel dan input)
-- --color-border : #E0D9C9 (garis pemisah)
-- --color-primary : #8B4513 (tombol dan tautan)
-- --color-danger : #B00020 (isian salah)
-- --color-focus : #8B4513 (garis fokus)
-- --radius-md : 0.5rem (sudut tombol)
-- --space-4 : 1rem (jarak standar)
-
-Kriteria selesai saya: kalau saya ubah --brown-700 di tokens.css,
-warna tombol, tautan, judul, dan garis fokus ikut berubah. Uji
-ini ada di Lembar G dan hasilnya sesuai.
-
-Tema gelap saya bikin pakai saklar manual di header, pakai
-checkbox dan :has(). Tombol diklik nyala jadi gelap, diklik lagi
-balik terang.
-
-Data Kandang saya ubah dari kartu jadi tabel. Kolomnya Kandang,
-Jenis Ayam, Jumlah, dan Produksi Telur.
-
-## Catatan penggunaan AI:"Saya pakai AI untuk mencari contoh sintaks :has() dan cara pakai var(). Kode CSS saya ."
-
-
 ## Pertemuan 3 – Halaman profil saya
 
 Topik halaman saya: produksi telur ayam harian.
@@ -53,3 +17,61 @@ Topik halaman saya: produksi telur ayam harian.
 # Saya Menggunakan AI untuk Memberikan saran struktur elemen HTML yang baik (tabel, form, dan navigasi).
 # Membantu pemahaman sintaks dan *debugging* ketika terjadi masalah pada alur halaman.
 
+
+## Pertemuan 4 - Design token halaman profil kandang
+
+Hari ini saya ubah profil.html dari P3 supaya punya tampilan.
+File CSS yang saya buat ada 5: tokens.css, base.css, layout.css,
+komponen.css, tema.css. Semuanya ada di folder worksheet-p4/.
+
+Halaman ini tentang kandang ayam petelur. Warna utama yang saya
+pilih #8B4513 (cokelat), karena cocok dengan tema kandang dan
+lebih beda dari warna biru yang umum dipakai.
+
+Token yang saya tetapkan:
+
+- -color-bg :  #FFFFFF (latar halaman)
+- -color-fg : #1A1A1A (teks utama)
+- -color-surface : #FFFFFF (latar tabel dan input)
+- -color-border : #E0D9C9 (garis pemisah)
+- -color-primary : #8B4513 (tombol dan tautan)
+- -color-danger : #B00020 (isian salah)
+- -color-focus : #8B4513 (garis fokus)
+- -radius-md : 0.5rem (sudut tombol)
+- -space-4 : 1rem (jarak standar)
+
+Kriteria selesai saya: kalau saya ubah --brown-700 di tokens.css,
+warna tombol, tautan, judul, dan garis fokus ikut berubah. Uji
+ini ada di Lembar G dan hasilnya sesuai.
+
+Tema gelap saya bikin pakai saklar manual di header, pakai
+checkbox dan :has(). Tombol diklik nyala jadi gelap, diklik lagi
+balik terang.
+
+Data Kandang saya ubah dari kartu jadi tabel. Kolomnya Kandang,
+Jenis Ayam, Jumlah, dan Produksi Telur.
+
+## Catatan penggunaan AI:"Saya pakai AI untuk mencari contoh sintaks :has() dan cara pakai var(). Kode CSS saya ."
+
+
+## Pertemuan 5 - Layout modern: flexbox dan grid
+
+Hari ini saya ubah susunan profil kandang dari P4. Isi dan warna tetap,
+yang berubah cuma CSS posisi, ditambah satu div pembungkus .page.
+
+Yang saya pakai:
+
+- .page pakai grid tiga baris: auto 1fr auto, min-height pakai 100dvh.
+- .isi pakai grid dua kolom 16rem 1fr, dengan area bernama sisi, utama, dan bawah.
+- Navbar dan kaki kartu pakai flex, jaraknya pakai gap.
+- Galeri pakai repeat(auto-fit, minmax(16rem, 1fr)), kolomnya nambah sendiri tanpa media query.
+
+Yang saya perbaiki:
+
+- Awalnya dua section saya kasih class .bawah, jadinya tumpuk. Sudah saya bungkus jadi satu div.
+- Tabel meluber di 360 px, saya kasih overflow-x auto.
+
+Sudah dites di 360 px dan 1280 px, tidak ada yang keluar kotak.
+
+## Catatan penggunaan AI
+# Saya pakai AI buat ngingetin sintaks repeat(auto-fit, minmax) dan buat cek kenapa dua section bisa tumpuk di grid yang sama.
