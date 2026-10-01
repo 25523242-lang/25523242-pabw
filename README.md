@@ -52,26 +52,71 @@ Data Kandang saya ubah dari kartu jadi tabel. Kolomnya Kandang,
 Jenis Ayam, Jumlah, dan Produksi Telur.
 
 ## Catatan penggunaan AI:"Saya pakai AI untuk mencari contoh sintaks :has() dan cara pakai var(). Kode CSS saya ."
-
+ 
 
 ## Pertemuan 5 - Layout modern: flexbox dan grid
 
-Hari ini saya ubah susunan profil kandang dari P4. Isi dan warna tetap,
-yang berubah cuma CSS posisi, ditambah satu div pembungkus .page.
+Di pertemuan ini saya ubah susunan halaman dari P4. Isi, warna, dan token
+tetap sama, yang berubah cuma CSS posisi. Saya juga tambah satu div
+pembungkus .page di profil.html buat bungkus header, main, dan footer.
 
 Yang saya pakai:
 
-- .page pakai grid tiga baris: auto 1fr auto, min-height pakai 100dvh.
-- .isi pakai grid dua kolom 16rem 1fr, dengan area bernama sisi, utama, dan bawah.
-- Navbar dan kaki kartu pakai flex, jaraknya pakai gap.
+- .page pakai grid tiga baris auto 1fr auto, tingginya pakai 100dvh.
+- .isi pakai grid dua kolom 16rem 1fr, pakai area bernama sisi, utama, dan bawah.
+- Navbar pakai flex, jaraknya pakai gap bukan margin.
+- Kaki kartu juga flex, biar teks kiri tombol kanan.
 - Galeri pakai repeat(auto-fit, minmax(16rem, 1fr)), kolomnya nambah sendiri tanpa media query.
 
 Yang saya perbaiki:
 
-- Awalnya dua section saya kasih class .bawah, jadinya tumpuk. Sudah saya bungkus jadi satu div.
-- Tabel meluber di 360 px, saya kasih overflow-x auto.
+- Pertama kali dua section saya kasih class .bawah, jadinya tumpuk. Sudah
+  saya bungkus jadi satu div .bawah.
+- Tabel meluber di 360 px, saya kasih overflow-x auto di pembungkusnya.
+- Judul panjang bikin kolom melebar, saya kasih min-width 0 sama overflow-wrap anywhere.
 
-Sudah dites di 360 px dan 1280 px, tidak ada yang keluar kotak.
+Sudah saya tes di 360 px dan 1280 px, tidak ada yang keluar dari kotak.
+Tema gelap dari P4 masih jalan lewat tombol pengalih.
 
 ## Catatan penggunaan AI
-# Saya pakai AI buat ngingetin sintaks repeat(auto-fit, minmax) dan buat cek kenapa dua section bisa tumpuk di grid yang sama.
+
+Di P5 ini saya pakai AI buat ngingetin sintaks repeat(auto-fit, minmax)
+dan buat cek kenapa dua section bisa tumpuk di area grid yang sama.
+Kode CSS-nya saya tulis sendiri sambil nyocokin sama contoh.
+
+## Pertemuan 6 - Responsif Mobile-First
+
+Di P6 ini saya nggak bikin halaman baru. Halaman P5 sama kelima file CSS-nya
+saya pakai lagi, terus saya tambah satu file baru namanya responsif.css.
+
+Yang saya kerjakan:
+
+- Pastikan meta viewport ada di head HTML
+- Bikin responsif.css, bagian dasar buat layar sempit dulu tanpa media query
+- Tambah dua titik henti pakai min-width: 48rem dan 60rem
+- Gambar dibatasi max-width 100%, tabel lebar dikasih wadah overflow-x auto
+- Tes di 360 px, 768 px, dan 1280 px
+
+Titik henti yang saya pakai:
+
+- 48rem: galeri dari satu kolom jadi dua kolom
+- 60rem: sidebar bersanding sama konten, galeri jadi tiga kolom
+
+Hasil tes 3 lebar:
+
+- 360 px : 1 kolom
+- 768 px : 2 kolom
+- 1280 px: 3 kolom
+
+Yang saya ubah dari P5:
+
+- profilkandang.html : nambah link ke responsif.css
+- layout.css : hapus media query max-width, sederhanain .isi
+- komponen.css : .galeri diganti jadi 1fr di dasar
+- responsif.css : file baru, isinya gaya dasar + 2 titik henti
+
+## Catatan penggunaan AI
+
+Di P6 ini saya pakai AI buat nanya bedanya min-width sama max-width
+di media query, terus buat cek kenapa .galeri saya nggak berubah pas
+diuji di 768 px. Kode CSS-nya saya tulis dan sesuaikan sendiri.
