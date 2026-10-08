@@ -1,4 +1,4 @@
-// ---------- A. DATA PROFIL ----------
+// ---------- B. DATA PROFIL ----------
 const profil = {
   nama: "Kandang Ayam Petelur",
   peran: "peternakan ayam petelur",
@@ -8,3 +8,8 @@ const profil = {
   jenisAyam: ["Lohmann Brown", "Isa Brown", "Pullet"],
   jumlahKandang: 3,
 };
+
+// Cek di Console — nilainya harus muncul, bukan undefined
+console.log(profil.nama);
+console.log(typeof profil.nama);
+console.log(typeof profil.jumlahKandang);
