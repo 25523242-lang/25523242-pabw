@@ -22,3 +22,48 @@ const formatJenis = (arr) => arr.join(" · ");
 
 console.log(perkenalan(profil));
 console.log(formatJenis(profil.jenisAyam));
+
+// data kandang
+const dataKandang = [
+  {
+    nama: "Kandang A",
+    jenis: "Lohmann Brown",
+    jumlah: 500,
+    produksi: 450,
+    status: "Produktif",
+  },
+  {
+    nama: "Kandang B",
+    jenis: "Isa Brown",
+    jumlah: 400,
+    produksi: 360,
+    status: "Produktif",
+  },
+  {
+    nama: "Kandang C",
+    jenis: "Pullet",
+    jumlah: 300,
+    produksi: 0,
+    status: "Pemantauan",
+  },
+];
+
+console.table(dataKandang);
+
+// coba ambil yang produktif aja
+const produktif = dataKandang.filter((k) => k.status === "Produktif");
+console.table(produktif);
+
+// cari kandang C
+const kandangC = dataKandang.find((k) => k.nama === "Kandang C");
+console.log(kandangC);
+
+// ringkasan tiap kandang
+const ringkasan = dataKandang.map(
+  (k) => `${k.nama}: ${k.jenis}, ${k.jumlah} ekor, ${k.produksi} butir/hari`
+);
+console.log(ringkasan);
+
+// copy dulu baru sort biar aslinya gak kegeser
+const urut = [...dataKandang].sort((a, b) => b.produksi - a.produksi);
+console.table(urut);
