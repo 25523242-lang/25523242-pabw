@@ -120,3 +120,16 @@ Yang saya ubah dari P5:
 Di P6 ini saya pakai AI buat nanya bedanya min-width sama max-width
 di media query, terus buat cek kenapa .galeri saya nggak berubah pas
 diuji di 768 px. Kode CSS-nya saya tulis dan sesuaikan sendiri.
+
+# worksheet-p8
+
+Tugas PABW pertemuan 8 — data halaman profil kandang jadi variabel JS.
+
+## Yang saya kerjakan
+- mindahin isi halaman ke app.js (profil, galeri, tabel)
+- bikin 2 fungsi: perkenalan + format jenis ayam
+- pakai map, filter, find buat data kandang
+- sambungin ke html pakai querySelector
+
+## Bantuan AI
+- saya pakai AI buat contoh struktur array of object
