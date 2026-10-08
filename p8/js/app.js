@@ -1,5 +1,3 @@
-/ p8
-
 // data profil kandang
 
 const profil = {
