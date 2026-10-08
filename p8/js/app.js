@@ -26,3 +26,29 @@ const dataKandang = [
   { nama: "Kandang B", jenis: "Isa Brown",     jumlah: 400, produksi: 360, status: "Produktif" },
   { nama: "Kandang C", jenis: "Pullet",        jumlah: 300, produksi: 0,   status: "Pemantauan" },
 ];
+
+console.table(dataKandang);
+
+const produktif = dataKandang.filter((k) => k.status === "Produktif");
+console.table(produktif);
+
+const kandangC = dataKandang.find((k) => k.nama === "Kandang C");
+console.log(kandangC);
+
+const ringkasan = dataKandang.map(
+  (k) => `${k.nama}: ${k.jenis}, ${k.jumlah} ekor, ${k.produksi} butir/hari`
+);
+console.log(ringkasan);
+
+const urut = [...dataKandang].sort((a, b) => b.produksi - a.produksi);
+console.table(urut);
+
+function totalProduksi(list) {
+  let total = 0;
+  for (const k of list) {
+    total = total + k.produksi;
+  }
+  return total;
+}
+
+console.log("Total:", totalProduksi(dataKandang));
