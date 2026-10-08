@@ -67,3 +67,58 @@ console.log(ringkasan);
 // copy dulu baru sort biar aslinya gak kegeser
 const urut = [...dataKandang].sort((a, b) => b.produksi - a.produksi);
 console.table(urut);
+
+// ambil elemen dari html
+const judul = document.querySelector("#judul-halaman");
+const isiProfil = document.querySelector("#teks-profil");
+const galeri = document.querySelector("#wadah-galeri");
+const tbody = document.querySelector("#isi-tabel");
+const footer = document.querySelector("#teks-footer");
+
+judul.textContent = profil.nama;
+isiProfil.textContent = profil.deskripsi;
+footer.textContent = `© ${profil.sejak}–2026 ${profil.nama}.`;
+
+// kartu galeri
+let kartuHTML = "";
+for (const k of dataKandang) {
+  kartuHTML += `
+    <article class="kartu">
+      <div class="kartu__isi">
+        <h3 class="kartu__judul">${k.nama}</h3>
+        <p>${k.jenis} · ${k.jumlah} ekor · ${k.produksi} butir per hari.</p>
+      </div>
+      <div class="kartu__kaki">
+        <span>${k.status}</span>
+        <button type="button">Detail</button>
+      </div>
+    </article>
+  `;
+}
+galeri.innerHTML = kartuHTML;
+
+// baris tabel
+let barisHTML = "";
+for (const k of dataKandang) {
+  const teks = k.produksi === 0 ? "Baru mulai bertelur" : k.produksi + " butir/hari";
+  barisHTML += `
+    <tr>
+      <td>${k.nama}</td>
+      <td>${k.jenis}</td>
+      <td>${k.jumlah} ekor</td>
+      <td>${teks}</td>
+    </tr>
+  `;
+}
+tbody.innerHTML = barisHTML;
+
+// total produksi semua kandang
+function totalProduksi(list) {
+  let total = 0;
+  for (const k of list) {
+    total = total + k.produksi;
+  }
+  return total;
+}
+
+console.log("Total:", totalProduksi(dataKandang));
