@@ -9,3 +9,43 @@ const profil = {
   jenisAyam: ["Lohmann Brown", "Isa Brown", "Pullet"],
   jumlahKandang: 3,
 };
+
+function perkenalan(data) {
+  return `${data.nama} itu ${data.peran} yang sudah beroperasi sejak ${data.sejak}. Sekarang ada ${data.jumlahKandang} kandang aktif.`;
+}
+
+const formatJenis = (arr) => arr.join(" · ");
+
+console.log(perkenalan(profil));
+console.log(formatJenis(profil.jenisAyam));
+
+const dataKandang = [
+  { nama: "Kandang A", jenis: "Lohmann Brown", jumlah: 500, produksi: 450, status: "Produktif" },
+  { nama: "Kandang B", jenis: "Isa Brown",     jumlah: 400, produksi: 360, status: "Produktif" },
+  { nama: "Kandang C", jenis: "Pullet",        jumlah: 300, produksi: 0,   status: "Pemantauan" },
+];
+
+console.table(dataKandang);
+const produktif = dataKandang.filter((k) => k.status === "Produktif");
+console.table(produktif);
+
+const kandangC = dataKandang.find((k) => k.nama === "Kandang C");
+console.log(kandangC);
+
+const ringkasan = dataKandang.map(
+  (k) => `${k.nama}: ${k.jenis}, ${k.jumlah} ekor, ${k.produksi} butir/hari`
+);
+console.log(ringkasan);
+
+const urut = [...dataKandang].sort((a, b) => b.produksi - a.produksi);
+console.table(urut);
+
+function totalProduksi(list) {
+  let total = 0;
+  for (const k of list) {
+    total = total + k.produksi;
+  }
+  return total;
+}
+
+console.log("Total:", totalProduksi(dataKandang));
