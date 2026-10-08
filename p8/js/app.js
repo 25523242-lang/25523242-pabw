@@ -13,3 +13,14 @@ const profil = {
 };
 
 console.log(profil.nama);
+
+// fungsi buat kalimat perkenalan
+function perkenalan(data) {
+  return `${data.nama} itu ${data.peran} yang sudah beroperasi sejak ${data.sejak}. Sekarang ada ${data.jumlahKandang} kandang aktif.`;
+}
+
+// rapihin jenis ayam jadi satu baris
+const formatJenis = (arr) => arr.join(" · ");
+
+console.log(perkenalan(profil));
+console.log(formatJenis(profil.jenisAyam));
