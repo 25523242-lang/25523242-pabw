@@ -55,7 +55,7 @@ console.log("Total:", totalProduksi(dataKandang));
 
 // ---------- masukin ke halaman ----------
 const judul = document.querySelector("#judul-halaman");
-const isiProfil = document.querySelector("teks-profil");
+const isiProfil = document.querySelector("#teks-profil");
 const galeri = document.querySelector("#wadah-galeri");
 const tbody = document.querySelector("#isi-tabel");
 const footer = document.querySelector("#teks-footer");
