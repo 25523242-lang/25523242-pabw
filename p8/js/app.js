@@ -113,3 +113,14 @@ for (const k of dataKandang) {
   `;
 }
 tbody.innerHTML = barisHTML;
+
+// total produksi semua kandang
+function totalProduksi(list) {
+  let total = 0;
+  for (const k of list) {
+    total = total + k.produksi;
+  }
+  return total;
+}
+
+console.log("Total:", totalProduksi(dataKandang));
