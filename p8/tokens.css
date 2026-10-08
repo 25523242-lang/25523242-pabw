@@ -1,6 +1,6 @@
 :root {
   --cream-50: #FFFFFF;
-  --white: #F7F7F5;
+  --white: #FFFFFF;
   --ink-900: #1A1A1A;
   --brown-700: #8B4513;
   --amber-600: #D97706;
@@ -21,9 +21,7 @@
   --text-md: 1rem;
   --text-xl: 1.5rem;
   --text-3xl: 2.25rem;
-}
 
-:root {
   --color-bg: var(--cream-50);
   --color-fg: var(--ink-900);
   --color-surface: var(--white);

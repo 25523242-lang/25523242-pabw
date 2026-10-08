@@ -11,14 +11,14 @@ header {
   color: var(--color-fg);
 }
 
-.navbar {
+.baris-atas {
   display: flex;
   align-items: center;
   gap: var(--space-4);
   flex-wrap: wrap;
 }
 
-.navbar h1 {
+.baris-atas h1 {
   margin-right: auto;
 }
 
@@ -40,11 +40,6 @@ nav a:hover {
 }
 
 .isi {
-  display: grid;
-  grid-template-columns: 16rem 1fr;
-  grid-template-areas:
-    "sisi utama"
-    "sisi bawah";
   gap: var(--space-6);
   padding: var(--space-6);
   color: var(--color-fg);
@@ -139,14 +134,4 @@ footer {
   border-top: 1px solid var(--color-border);
   color: var(--color-fg);
   font-size: var(--text-sm);
-}
-
-@media (max-width: 48rem) {
-  .isi {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "sisi"
-      "utama"
-      "bawah";
-  }
 }
