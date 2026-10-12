@@ -138,3 +138,19 @@ textarea:user-invalid {
   color: var(--color-fg);
   font-size: var(--text-sm);
 }
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+.form-kolom:has([aria-invalid="true"]) .pesan-galat {
+  display: block;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
