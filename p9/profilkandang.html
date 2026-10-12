@@ -17,7 +17,7 @@
 
 <header>
   <div class="baris-atas">
-    <h1 id="judul-halaman"></h1>
+    <h1 id="judul-halaman">Kandang Ayam Petelur</h1>
     <nav aria-label="Navigasi utama">
       <ul>
         <li><a href="#profil">Profil</a></li>
@@ -34,12 +34,22 @@
 
   <section id="profil" class="sisi">
     <h2>Profil Kandang</h2>
-    <p id="teks-profil"></p>
+    <p id="teks-profil">Kandang ini beroperasi sejak 2018. Ayam yang dipelihara jenis Lohmann Brown dan Isa Brown. Pakan diberikan dua kali sehari, telur dipanen setiap pagi lalu dikirim ke pasar dan pelanggan tetap di sekitar kota.</p>
   </section>
 
   <section id="galeri" class="utama">
     <h2>Galeri Kandang</h2>
+
+    <div id="filter" class="baris-filter" role="group" aria-label="Filter kategori kandang">
+      <button type="button" data-kategori="semua" class="aktif">Semua</button>
+      <button type="button" data-kategori="produktif">Produktif</button>
+      <button type="button" data-kategori="pemantauan">Pemantauan</button>
+    </div>
+
     <div class="galeri" id="wadah-galeri"></div>
+
+    <p id="pesan-kosong" class="pesan-kosong" hidden>Tidak ada kandang pada kategori ini.</p>
+
     <figure class="foto">
       <img src="gambar.webp" alt="Baris ayam petelur di dalam kandang dengan lampu dan tempat pakan otomatis">
       <figcaption>Kandang ayam petelur, baris baterai dengan tempat pakan otomatis.</figcaption>
@@ -60,6 +70,7 @@
               <th>Produksi Telur</th>
             </tr>
           </thead>
+          <!-- tbody dibiarkan kosong; baris dibuat dari data oleh dom.js -->
           <tbody id="isi-tabel"></tbody>
         </table>
       </div>
@@ -67,20 +78,21 @@
 
     <section id="kontak">
       <h2>Hubungi Kami</h2>
-      <form action="#" method="post">
+      <form id="form-kontak" action="#" method="post" novalidate>
         <div class="form-kolom">
           <label for="nama">Nama</label>
           <input id="nama" name="nama" type="text" required>
-          <span class="pesan-galat">Nama wajib diisi.</span>
+          <span class="pesan-galat" id="galat-nama">Nama wajib diisi.</span>
         </div>
         <div class="form-kolom">
           <label for="email">Email</label>
           <input id="email" name="email" type="email" required>
-          <span class="pesan-galat">Masukkan email yang benar.</span>
+          <span class="pesan-galat" id="galat-email">Masukkan email yang benar.</span>
         </div>
         <div class="form-kolom">
           <label for="telepon">Telepon</label>
           <input id="telepon" name="telepon" type="tel" inputmode="tel">
+          <span class="pesan-galat" id="galat-telepon"></span>
         </div>
         <div class="form-kolom">
           <label for="kebutuhan">Kebutuhan</label>
@@ -90,12 +102,12 @@
             <option value="pullet">Beli Bibit Ayam</option>
             <option value="pakan">Tanya Pakan</option>
           </select>
-          <span class="pesan-galat">Pilih salah satu kebutuhan.</span>
+          <span class="pesan-galat" id="galat-kebutuhan">Pilih salah satu kebutuhan.</span>
         </div>
         <div class="form-kolom">
           <label for="pesan">Pesan</label>
           <textarea id="pesan" name="pesan" rows="4" required></textarea>
-          <span class="pesan-galat">Pesan tidak boleh kosong.</span>
+          <span class="pesan-galat" id="galat-pesan">Pesan tidak boleh kosong.</span>
         </div>
         <button type="submit">Kirim</button>
       </form>
@@ -106,7 +118,7 @@
 </main>
 
 <footer>
-  <p id="teks-footer"></p>
+  <p id="teks-footer">© 2018–2026 Kandang Ayam Petelur.</p>
 </footer>
 
 </div>
