@@ -1,17 +1,16 @@
 import { profil, dataKandang } from "./app.js";
 
-const judul       = document.querySelector("#judul-halaman");
-const isiProfil   = document.querySelector("#teks-profil");
-const galeri      = document.querySelector("#wadah-galeri");
-const tbody       = document.querySelector("#isi-tabel");
-const footer      = document.querySelector("#teks-footer");
+const judul = document.querySelector("#judul-halaman");
+const isiProfil = document.querySelector("#teks-profil");
+const galeri = document.querySelector("#wadah-galeri");
+const tbody = document.querySelector("#isi-tabel");
+const footer = document.querySelector("#teks-footer");
 const pesanKosong = document.querySelector("#pesan-kosong");
 const barisFilter = document.querySelector("#filter");
-const form        = document.querySelector("#form-kontak");
 
-judul.textContent     = profil.nama;
+judul.textContent = profil.nama;
 isiProfil.textContent = profil.deskripsi;
-footer.textContent    = `© ${profil.sejak}–2026 ${profil.nama}.`;
+footer.textContent = `© ${profil.sejak}–2026 ${profil.nama}.`;
 
 function buatKartu(kandang) {
   const artikel = document.createElement("article");
@@ -46,16 +45,19 @@ function buatKartu(kandang) {
 
 function renderGaleri(daftar) {
   galeri.textContent = "";
+
   if (daftar.length === 0) {
     pesanKosong.hidden = false;
     return;
   }
+
   pesanKosong.hidden = true;
   daftar.forEach((kandang) => galeri.append(buatKartu(kandang)));
 }
 
 function renderTabel(daftar) {
   tbody.textContent = "";
+
   daftar.forEach((kandang) => {
     const tr = document.createElement("tr");
 
@@ -102,56 +104,6 @@ barisFilter.addEventListener("click", (event) => {
   terapkanFilter(kategori);
 });
 
-// ---------- Lembar D: validasi form ----------
-
-function tampilkanGalat(kolom, pesan) {
-  kolom.setAttribute("aria-invalid", "true");
-  const pesanEl = document.querySelector(`#galat-${kolom.id}`);
-  if (pesanEl) pesanEl.textContent = pesan;
-}
-
-function hapusGalat(kolom) {
-  kolom.removeAttribute("aria-invalid");
-  const pesanEl = document.querySelector(`#galat-${kolom.id}`);
-  if (pesanEl) pesanEl.textContent = "";
-}
-
-function periksaForm() {
-  let semuaSah = true;
-
-  form.querySelectorAll("input, select, textarea").forEach((kolom) => {
-    if (kolom.id === "telepon") return;
-
-    if (kolom.value.trim() === "") {
-      tampilkanGalat(kolom, "Kolom ini wajib diisi.");
-      semuaSah = false;
-    } else {
-      hapusGalat(kolom);
-    }
-  });
-
-  const tombolKirim = form.querySelector("button[type='submit']");
-  if (tombolKirim) tombolKirim.disabled = !semuaSah;
-  return semuaSah;
-}
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const sah = periksaForm();
-  if (!sah) {
-    const pertamaSalah = form.querySelector("[aria-invalid='true']");
-    if (pertamaSalah) pertamaSalah.focus();
-    return;
-  }
-
-  console.log("Form siap dikirim:", Object.fromEntries(new FormData(form)));
-});
-
-form.addEventListener("input", periksaForm);
-
-// ---------- gambar pertama kali ----------
 renderGaleri(dataKandang);
 renderTabel(dataKandang);
 tandaiTombolAktif(barisFilter.querySelector("button[data-kategori='semua']"));
-periksaForm();

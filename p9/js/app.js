@@ -15,18 +15,3 @@ export const dataKandang = [
   { nama: "Kandang D", jenis: "Lohmann Brown", jumlah: 250, produksi: 210, status: "Produktif",  kategori: "produktif"  },
   { nama: "Kandang E", jenis: "Pullet",        jumlah: 350, produksi: 0,   status: "Pemantauan", kategori: "pemantauan" },
 ];
-
-export function buatPerkenalan({ nama, peran, jumlahKandang }) {
-  return `${nama} adalah ${peran}. Saat ini ada ${jumlahKandang} kandang aktif.`;
-}
-
-export const formatKeahlian = (daftar) => daftar.join(" · ");
-
-export function totalProduksi(list) {
-  let total = 0;
-  for (const k of list) {
-    total = total + k.produksi;
-  }
-  return total;
-}
-
