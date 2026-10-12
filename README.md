@@ -133,3 +133,51 @@ Tugas PABW pertemuan 8 — data halaman profil kandang jadi variabel JS.
 
 ## Bantuan AI
 - saya pakai AI buat contoh struktur array of object
+
+# P9 — DOM, Event, dan Interaktivitas
+## Apa yang dikerjakan
+
+Di pertemuan ini data dari P8 dipasang ke halaman pakai JavaScript.
+
+Yang saya kerjakan:
+
+1. Memisahkan `app.js` dan `dom.js`. `app.js` isinya data dan fungsi murni. `dom.js` yang ngurus DOM — pilih elemen, susun kartu, filter, validasi form.
+
+2. Bikin galeri dan tabel dari data. Pakai `createElement` dan `textContent`, bukan `innerHTML`. Setiap kali render, wadahnya dikosongin dulu biar kartu gak berlipat.
+
+3. Filter kategori pakai satu pendengar di induk `#filter`. Jadi cuma satu `addEventListener`, dan di dalamnya pakai `event.target.closest("button")` buat tahu tombol mana yang diklik.
+
+4. Validasi form kontak. Form gak reload halaman karena ada `preventDefault()`. Pesan galat muncul per kolom, tombol kirim baru aktif kalau semua kolom wajib udah diisi.
+
+---
+
+## Deklarasi AI
+
+- Bagian yang dibantu AI: struktur awal `dom.js`, penjelasan cara kerja event delegation, dan CSS untuk tombol filter.
+- Bagian yang saya kerjakan sendiri: milih id/kelas di HTML, ngisi data kandang, nyesuain CSS, uji filter di DevTools, dan nyatet 3 kasus di tabel E.4.
+
+---
+
+## Bukti
+
+Ada 3 screenshot di folder `bukti/`:
+
+- `e1-halaman-diam.png` — halaman diam pas pendengar filter sengaja dimatiin. Panel Event Listeners di DevTools kosong.
+- `e2-setelah-diperbaiki.png` — setelah diperbaiki, filter "Produktif" jalan, muncul 3 kartu.
+- `e3-filter-bekerja.png` — filter "Pemantauan" jalan, muncul 2 kartu.
+
+---
+
+## Cara buka
+
+Buka lewat Live Server, bukan klik dua kali. Soalnya pakai `<script type="module">`, kalau dibuka lewat `file://` skripnya diblokir peramban.
+
+Alamat: `http://127.0.0.1:5500/p9/profilkandang.html`
+
+---
+
+## Catatan
+
+- `app.js` harus dimuat sebelum `dom.js` karena `dom.js` pakai `import` dari `app.js`.
+- Filter pakai satu pendengar di induk biar gak ada pendengar ganda.
+- Data `dataKandang` gak pernah diubah — filter pakai `.filter()` yang bikin array baru.
