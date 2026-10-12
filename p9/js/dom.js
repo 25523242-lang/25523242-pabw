@@ -6,6 +6,7 @@ const galeri      = document.querySelector("#wadah-galeri");
 const tbody       = document.querySelector("#isi-tabel");
 const footer      = document.querySelector("#teks-footer");
 const pesanKosong = document.querySelector("#pesan-kosong");
+const barisFilter = document.querySelector("#filter");
 
 judul.textContent     = profil.nama;
 isiProfil.textContent = profil.deskripsi;
@@ -75,5 +76,31 @@ function renderTabel(daftar) {
   });
 }
 
+function tandaiTombolAktif(tombolAktif) {
+  barisFilter.querySelectorAll("button").forEach((tombol) => {
+    tombol.classList.toggle("aktif", tombol === tombolAktif);
+  });
+}
+
+function terapkanFilter(kategori) {
+  const terpilih =
+    kategori === "semua"
+      ? dataKandang
+      : dataKandang.filter((kandang) => kandang.kategori === kategori);
+
+  renderGaleri(terpilih);
+  renderTabel(terpilih);
+}
+
+barisFilter.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button");
+  if (!tombol) return;
+
+  const kategori = tombol.dataset.kategori;
+  tandaiTombolAktif(tombol);
+  terapkanFilter(kategori);
+});
+
 renderGaleri(dataKandang);
 renderTabel(dataKandang);
+tandaiTombolAktif(barisFilter.querySelector("button[data-kategori='semua']"));
