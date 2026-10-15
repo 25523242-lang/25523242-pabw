@@ -158,16 +158,6 @@ Yang saya kerjakan:
 
 ---
 
-## Bukti
-
-Ada 3 screenshot di folder `bukti/`:
-
-- `e1-halaman-diam.png` — halaman diam pas pendengar filter sengaja dimatiin. Panel Event Listeners di DevTools kosong.
-- `e2-setelah-diperbaiki.png` — setelah diperbaiki, filter "Produktif" jalan, muncul 3 kartu.
-- `e3-filter-bekerja.png` — filter "Pemantauan" jalan, muncul 2 kartu.
-
----
-
 ## Cara buka
 
 Buka lewat Live Server, bukan klik dua kali. Soalnya pakai `<script type="module">`, kalau dibuka lewat `file://` skripnya diblokir peramban.
