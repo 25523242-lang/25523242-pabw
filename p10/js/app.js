@@ -1,3 +1,5 @@
+import { ambilProyek } from './api.js';
+
 export const profil = {
   nama: "Kandang Ayam Petelur",
   peran: "peternakan ayam petelur",
@@ -8,6 +10,13 @@ export const profil = {
   jumlahKandang: 5,
 };
 
-import { ambilProyek } from './api.js';
+async function muatProyek() {
+  try {
+    const daftar = await ambilProyek();
+    console.log(daftar);
+  } catch (galat) {
+    console.error(galat.message);
+  }
+}
 
-ambilProyek().then((daftar) => console.log(daftar));
+muatProyek();
