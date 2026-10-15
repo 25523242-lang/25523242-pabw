@@ -11,7 +11,7 @@ export const profil = {
   jumlahKandang: 5,
 };
 
-async function muatData() {
+ async function muatData() {
   aturMemuat(true);
 
   try {
