@@ -1,12 +1,20 @@
-import { profil } from "./app.js";
+const profil = {
+  nama: "Kandang Ayam Petelur",
+  peran: "peternakan ayam petelur",
+  sejak: 2018,
+  deskripsi:
+    "Kandang ini sudah jalan sejak 2018. Ayam yang dipelihara ada dua jenis, Lohmann Brown sama Isa Brown. Pakan dikasih dua kali sehari, telur dipanen tiap pagi buat dikirim ke pasar dan pelanggan langganan di sekitar.",
+  jenisAyam: ["Lohmann Brown", "Isa Brown", "Pullet"],
+  jumlahKandang: 5,
+};
 
 const judul = document.querySelector("#judul-halaman");
 const isiProfil = document.querySelector("#teks-profil");
 const galeri = document.querySelector("#wadah-galeri");
-const tbody = document.querySelector("#isi-tabel");
 const footer = document.querySelector("#teks-footer");
 const pesanKosong = document.querySelector("#pesan-kosong");
 const barisFilter = document.querySelector("#filter");
+const muatEl = document.querySelector("#muat");
 
 judul.textContent = profil.nama;
 isiProfil.textContent = profil.deskripsi;
@@ -43,10 +51,11 @@ function buatKartu(kandang) {
   return artikel;
 }
 
-function renderGaleri(daftar) {
+export function render(daftar) {
   galeri.textContent = "";
 
   if (daftar.length === 0) {
+    pesanKosong.textContent = "Belum ada data.";
     pesanKosong.hidden = false;
     return;
   }
@@ -55,55 +64,32 @@ function renderGaleri(daftar) {
   daftar.forEach((kandang) => galeri.append(buatKartu(kandang)));
 }
 
-function renderTabel(daftar) {
-  tbody.textContent = "";
+export function aturMemuat(aktif) {
+  muatEl.hidden = !aktif;
+}
 
-  daftar.forEach((kandang) => {
-    const tr = document.createElement("tr");
+export function tampilkanGalat(pesan) {
+  galeri.textContent = "";
+  pesanKosong.textContent = pesan;
+  pesanKosong.hidden = false;
+}
 
-    const tdNama = document.createElement("td");
-    tdNama.textContent = kandang.nama;
+export function pasangFilter(daftar) {
+  barisFilter.addEventListener("click", (event) => {
+    const tombol = event.target.closest("button");
+    if (!tombol) return;
 
-    const tdJenis = document.createElement("td");
-    tdJenis.textContent = kandang.jenis;
+    const kategori = tombol.dataset.kategori;
 
-    const tdJumlah = document.createElement("td");
-    tdJumlah.textContent = `${kandang.jumlah} ekor`;
+    barisFilter.querySelectorAll("button").forEach((t) => {
+      t.classList.toggle("aktif", t === tombol);
+    });
 
-    const tdProduksi = document.createElement("td");
-    tdProduksi.textContent =
-      kandang.produksi === 0 ? "Baru mulai bertelur" : `${kandang.produksi} butir/hari`;
+    const terpilih =
+      kategori === "semua"
+        ? daftar
+        : daftar.filter((p) => p.kategori === kategori);
 
-    tr.append(tdNama, tdJenis, tdJumlah, tdProduksi);
-    tbody.append(tr);
+    render(terpilih);
   });
 }
-
-function tandaiTombolAktif(tombolAktif) {
-  barisFilter.querySelectorAll("button").forEach((tombol) => {
-    tombol.classList.toggle("aktif", tombol === tombolAktif);
-  });
-}
-
-function terapkanFilter(kategori) {
-  const terpilih =
-    kategori === "semua"
-      ? dataKandang
-      : dataKandang.filter((kandang) => kandang.kategori === kategori);
-
-  renderGaleri(terpilih);
-  renderTabel(terpilih);
-}
-
-barisFilter.addEventListener("click", (event) => {
-  const tombol = event.target.closest("button");
-  if (!tombol) return;
-
-  const kategori = tombol.dataset.kategori;
-  tandaiTombolAktif(tombol);
-  terapkanFilter(kategori);
-});
-
-renderGaleri(dataKandang);
-renderTabel(dataKandang);
-tandaiTombolAktif(barisFilter.querySelector("button[data-kategori='semua']"));

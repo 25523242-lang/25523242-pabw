@@ -1,4 +1,5 @@
 import { ambilProyek } from './api.js';
+import { render, pasangFilter, aturMemuat, tampilkanGalat } from './dom.js';
 
 export const profil = {
   nama: "Kandang Ayam Petelur",
@@ -10,13 +11,19 @@ export const profil = {
   jumlahKandang: 5,
 };
 
-async function muatProyek() {
+async function muatData() {
+  aturMemuat(true);
+
   try {
     const daftar = await ambilProyek();
-    console.log(daftar);
+    pasangFilter(daftar);
+    render(daftar);
   } catch (galat) {
+    tampilkanGalat("Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.");
     console.error(galat.message);
+  } finally {
+    aturMemuat(false);
   }
 }
 
-muatProyek();
+muatData();
