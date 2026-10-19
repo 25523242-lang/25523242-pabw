@@ -38,8 +38,15 @@ export function simpan(state) {
 
 export function muat() {
   try {
-    return JSON.parse(localStorage.getItem(KUNCI));
+    const data = JSON.parse(localStorage.getItem(KUNCI));
+    if (!data || data.versi !== VERSI) {
+      localStorage.removeItem(KUNCI); 
+      return null;
+    }
+    
+    return data;
   } catch {
+    localStorage.removeItem(KUNCI); 
     return null;
   }
 }
