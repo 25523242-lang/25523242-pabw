@@ -1,29 +1,23 @@
- import { ambilProyek } from './api.js';
-import { isiProyek } from './state.js';
+import { ambilProyek } from './api.js';
+import { isiProyek, pulihkan, muat } from './state.js';
 import { aturMemuat, tampilkanGalat } from './dom.js';
-import { pasangPendengar } from './events.js'; 
-export const profil = {
-  nama: "Kandang Ayam Petelur",
-  peran: "peternakan ayam petelur",
-  sejak: 2018,
-  deskripsi:
-    "Kandang ini sudah jalan sejak 2018. Ayam yang dipelihara ada dua jenis, Lohmann Brown sama Isa Brown. Pakan dikasih dua kali sehari, telur dipanen tiap pagi buat dikirim ke pasar dan pelanggan langganan di sekitar.",
-  jenisAyam: ["Lohmann Brown", "Isa Brown", "Pullet"],
-  jumlahKandang: 5,
-};
+import { pasangPendengar } from './events.js';
 
- async function muatData() {
+async function mulai() {
+  pulihkan(muat()); 
+  pasangPendengar();
+  
   aturMemuat(true);
 
   try {
-    const daftar = await ambilProyek();
-    pasangFilter(daftar);
-    render(daftar);
-  } catch (galat) {
-    tampilkanGalat("Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.");
+    const data = await ambilProyek();
+    isiProyek(data); 
+  } catch (err) {
+    tampilkanGalat("Data gagal dimuat. Periksa koneksi, lalu muat ulang.");
+    console.error(err.message);
   } finally {
     aturMemuat(false);
   }
 }
 
-muatData();
+mulai();

@@ -6,6 +6,7 @@ const galeri = document.querySelector("#wadah-galeri");
 const footer = document.querySelector("#teks-footer");
 const pesanKosong = document.querySelector("#pesan-kosong");
 const muatEl = document.querySelector("#muat");
+const isiTabel = document.querySelector("#isi-tabel");
 
 export function aturMemuat(aktif) {
   muatEl.hidden = !aktif;
@@ -19,10 +20,12 @@ export function tampilkanGalat(pesan) {
 
 export function render(state) {
   galeri.textContent = "";
+  if (isiTabel) isiTabel.textContent = "";
   
   judul.textContent = profil.nama;
   isiProfil.textContent = profil.deskripsi;
   footer.textContent = `© ${profil.sejak}–2026 ${profil.nama}.`;
+
   const tampil = saring(state.daftarProyek, state.kategoriAktif);
 
   if (tampil.length === 0) {
@@ -32,8 +35,18 @@ export function render(state) {
   }
 
   pesanKosong.hidden = true;
+  
   tampil.forEach((kandang) => {
     galeri.append(buatKartu(kandang, state.favorit));
+    
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${kandang.nama}</td>
+      <td>${kandang.jenis}</td>
+      <td>${kandang.jumlah} ekor</td>
+      <td>${kandang.produksi} butir/hari</td>
+    `;
+    if (isiTabel) isiTabel.append(tr);
   });
 
   tandaiTombolAktif(state.kategoriAktif);
@@ -61,20 +74,19 @@ function buatKartu(kandang, favorit) {
   const status = document.createElement("span");
   status.textContent = kandang.status;
 
-  const tombolFavorit = document.createElement("button");
-  tombolFavorit.type = "button";
-  tombolFavorit.className = "favorit";
-  tombolFavorit.dataset.id = kandang.id;
-  tombolFavorit.textContent = favorit.includes(kandang.id) ? "★" : "☆";
+  const tombol = document.createElement("button");
+  tombol.className = "favorit";
+  tombol.dataset.id = kandang.id;
+  tombol.textContent = favorit.includes(kandang.id) ? "★" : "☆";
   
-  kaki.append(status, tombolFavorit);
+  kaki.append(status, tombol);
   artikel.append(isi, kaki);
   return artikel;
 }
 
-function tandaiTombolAktif(kategoriAktif) {
+function tandaiTombolAktif(kategori) {
   const tombolFilter = document.querySelectorAll("#filter button");
-  tombolFilter.forEach((tombol) => {
-    tombol.classList.toggle("aktif", tombol.dataset.kategori === kategoriAktif);
+  tombolFilter.forEach((t) => {
+    t.classList.toggle("aktif", t.dataset.kategori === kategori);
   });
 }
