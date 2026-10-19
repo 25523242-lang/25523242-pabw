@@ -171,3 +171,34 @@ Alamat: `http://127.0.0.1:5500/p9/profilkandang.html`
 - `app.js` harus dimuat sebelum `dom.js` karena `dom.js` pakai `import` dari `app.js`.
 - Filter pakai satu pendengar di induk biar gak ada pendengar ganda.
 - Data `dataKandang` gak pernah diubah — filter pakai `.filter()` yang bikin array baru.
+
+# P10 — JavaScript Asinkron: fetch, Promise, dan JSON
+
+## Isi folder
+
+- `profilkandang.html` — halaman utama
+- `tokens.css`, `base.css`, `layout.css`, `komponen.css`, `tema.css`, `responsif.css`
+- `gambar.webp`
+- `data/proyek.json` — data kandang (dipindah dari P9)
+- `js/api.js` — alamat API dan fungsi `ambilProyek()`
+- `js/app.js` — perakit, memanggil `ambilProyek()` lalu `render()`
+- `js/dom.js` — `render()`, `aturMemuat()`, `tampilkanGalat()`, `pasangFilter()`
+
+## Yang dikerjakan
+
+- Data kandang dipindah dari `app.js` ke `data/proyek.json`.
+- Data diambil lewat `fetch` di `js/api.js`.
+- Status balasan diperiksa dengan `respons.ok` sebelum baca badannya.
+- Rantai `then` diganti `async/await` dengan satu `try/catch`.
+- Empat keadaan antarmuka ditangani: memuat, berhasil, gagal, kosong.
+- Filter kategori pakai event delegation di `#filter`.
+- Kata `fetch` hanya ada di `js/api.js`, biar lapisan data dan tampilan terpisah.
+
+## Deklarasi AI
+
+Saya kerjakan sendiri: seluruh kode di `js/api.js`, `js/dom.js`,
+`js/app.js`, dan `data/proyek.json`.
+
+Dibantu AI: penjelasan konsep `fetch`, `respons.ok`, `async/await`,
+dan bantuan membaca pesan galat saat debugging. Semua keputusan
+akhir dan penulisan kode saya lakukan sendiri.
