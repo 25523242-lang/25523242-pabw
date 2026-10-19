@@ -1,6 +1,7 @@
-import { ambilProyek } from './api.js';
-import { render, pasangFilter, aturMemuat, tampilkanGalat } from './dom.js';
-
+ import { ambilProyek } from './api.js';
+import { isiProyek } from './state.js';
+import { aturMemuat, tampilkanGalat } from './dom.js';
+import { pasangPendengar } from './events.js'; 
 export const profil = {
   nama: "Kandang Ayam Petelur",
   peran: "peternakan ayam petelur",
@@ -20,7 +21,6 @@ export const profil = {
     render(daftar);
   } catch (galat) {
     tampilkanGalat("Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.");
-    console.error(galat.message);
   } finally {
     aturMemuat(false);
   }
