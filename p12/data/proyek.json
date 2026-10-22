@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nama": "Kandang A", "jenis": "Lohmann Brown", "jumlah": 500, "produksi": 450, "status": "Produktif",  "kategori": "produktif"  },
+  { "id": 2, "nama": "Kandang B", "jenis": "Isa Brown",     "jumlah": 400, "produksi": 360, "status": "Produktif",  "kategori": "produktif"  },
+  { "id": 3, "nama": "Kandang C", "jenis": "Pullet",        "jumlah": 300, "produksi": 0,   "status": "Pemantauan", "kategori": "pemantauan" },
+  { "id": 4, "nama": "Kandang D", "jenis": "Lohmann Brown", "jumlah": 250, "produksi": 210, "status": "Produktif",  "kategori": "produktif"  },
+  { "id": 5, "nama": "Kandang E", "jenis": "Pullet",        "jumlah": 350, "produksi": 0,   "status": "Pemantauan", "kategori": "pemantauan" }
+]
