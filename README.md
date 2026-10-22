@@ -172,6 +172,9 @@ Alamat: `http://127.0.0.1:5500/p9/profilkandang.html`
 - Filter pakai satu pendengar di induk biar gak ada pendengar ganda.
 - Data `dataKandang` gak pernah diubah — filter pakai `.filter()` yang bikin array baru.
 
+
+
+
 # P10 — JavaScript Asinkron: fetch, Promise, dan JSON
 
 ## Isi folder
@@ -202,3 +205,37 @@ Saya kerjakan sendiri: seluruh kode di `js/api.js`, `js/dom.js`,
 Dibantu AI: penjelasan konsep `fetch`, `respons.ok`, `async/await`,
 dan bantuan membaca pesan galat saat debugging. Semua keputusan
 akhir dan penulisan kode saya lakukan sendiri.
+
+
+
+# Tugas P11 - Modul, State, dan Penyimpanan Klien
+
+Halo! Ini adalah repositori untuk Worksheet Pertemuan 11 mata kuliah Pengembangan Aplikasi Berbasis Web. 
+Di pertemuan ini, saya memecah file JavaScript dari P10 menjadi lima modul terpisah, memisahkan state dari DOM, dan menambahkan fitur penyimpanan lokal (localStorage).
+
+## Struktur Folder
+- `profilkandang.html` : Halaman utama
+- `css/` : Kumpulan file styling (tokens, base, layout, komponen, dll)
+- `js/` : 
+  - `data.js` (data profil & fungsi bantuan)
+  - `state.js` (pusat state & localStorage)
+  - `dom.js` (semua urusan render tampilan)
+  - `events.js` (pendengar event klik)
+  - `app.js` (perakit utama)
+  - `api.js` (ambil data dari JSON)
+- `data/proyek.json` : Data dummy kandang
+
+## Catatan Pengerjaan (Pertemuan 11)
+
+### Deklarasi Penggunaan AI
+Sesuai aturan kejujuran akademik, saya menuliskan bagian mana saja yang dibantu oleh AI dalam pengerjaan ini:
+- **Dibantu AI:** Saya menggunakan bantuan AI  untuk membantu memahami alur pemisahan modul (Lembar B & C) dan menyesuaikan sintaks `localStorage` serta penanganan error `try/catch` pada Lembar D dan E.
+- **Dikerjakan Sendiri:** Saya mengetik ulang kode ke dalam VS Code, melakukan penyesuaian path import, melakukan uji coba (testing) langsung di browser, memperbaiki error 404 pada API, serta mengisi seluruh tabel dan menjawab soal tiket keluar secara mandiri.
+
+### Pekerjaan Rumah (F.2) - Instalasi Node.js
+Sebelum Pertemuan 12, saya sudah memasang Node.js versi LTS di laptop saya. Berikut adalah bukti versi yang terpasang di terminal:
+- **Versi Node.js:** `v24.22.0` *(Silakan ganti dengan versi node Anda)*
+- **Versi npm:** `10.2.4` *(Silakan ganti dengan versi npm Anda saat mengetik `npm -v`)*
+
+### Hal yang Diingat (F.3)
+*"Jangan pernah menyimpan state di dalam DOM, karena saat dirender ulang, DOM akan dihapus dan state ikut hilang. Selalu simpan di satu objek state."*
